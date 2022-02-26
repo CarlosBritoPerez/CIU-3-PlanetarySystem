@@ -46,8 +46,8 @@ void setup()
   rotateX = 0;
   rotateY = 0;
   
-  gif = new GifMaker(this, ".gif");
-  gif.setRepeat(0);
+  //gif = new GifMaker(this, ".gif");
+  //gif.setRepeat(0);
 }
 
 
@@ -65,9 +65,6 @@ void draw()
   
   rotateY(radians(rotateY));
   rotateX(-radians(rotateX));
-  
-  //rotateY(radians(0));
-  //rotateX(-radians(0));
   pushMatrix();
   star1 = new CelestialBody(star1Texture, 2, 0, 0, 100, 0);
   popMatrix();
@@ -98,7 +95,7 @@ void draw()
   if (ang>1000){
     ang=0;
   }
-  gif();
+  //gif();
 }
 void mouseReleased(){
   drag = false;
@@ -111,10 +108,10 @@ void mouseDragged(){
 }
 
 void gif(){
-  if(gifCount % 5 == 0 ){
+  if(gifCount % 5 == 0 && gifCount > 500){
     gif.addFrame();    
   }
-  if(gifCount > 1000){
+  if(gifCount > 700){
      gif.finish(); 
   }
   gifCount++;
